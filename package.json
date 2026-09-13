@@ -18,6 +18,7 @@
     "next": "15.5.25",
     "react": "19.1.1",
     "react-dom": "19.1.1",
+    "vercel": "^59.16.0",
     "zod": "^4.6.2"
   },
   "devDependencies": {
