@@ -435,9 +435,15 @@ export function Dashboard({
             window.localStorage.setItem(SIZES_STORAGE_KEY, JSON.stringify(next));
             return next;
           });
-          // Le pedimos al agente que regenere el widget adaptado a ese tamaño.
+          // Le pedimos al agente que regenere el widget adaptado a ese tamaño,
+          // pero solo si el widget tiene una conversación real detrás: sin
+          // historial (p. ej. los widgets estáticos del picker) el agente no
+          // tiene contexto de cuál es su finalidad y puede "autocompletar"
+          // con datos de otro widget (mismo bug que el auto-refresh evita
+          // con `widget.history.length === 0` más abajo). En ese caso el
+          // redimensionado ya se resuelve localmente vía `layoutWidget`.
           const widget = loadWidgets().find((item) => item.widgetId === active.id);
-          if (widget) void adaptWidgetSizeRef.current(widget, draft.w, draft.h);
+          if (widget && widget.history.length > 0) void adaptWidgetSizeRef.current(widget, draft.w, draft.h);
         };
 
         if (!collides) {
