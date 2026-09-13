@@ -1,3 +1,8 @@
+
+# Servidor de prueba de la app: https://banorte-present.vercel.app/
+
+
+
 # Reto Banorte — Agente financiero que genera su propia UI
 
 App bancaria donde el usuario le pide al agente una pantalla (una meta de ahorro,
