@@ -27,3 +27,4 @@ next-env.d.ts
 
 # local persisted data (synthetic runtime DB)
 /src/data/db.local.json
+.vercel
